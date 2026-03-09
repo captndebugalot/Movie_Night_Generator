@@ -4,6 +4,7 @@ import Nav from './Components/Nav';
 import Home from './Components/Home';
 import './db'
 import MovieSearch from "./Components/MovieSearch";
+import Watchlist from "./Components/WatchList";
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/movie-search" element={<MovieSearch />} />
+        <Route path="/watchlist" element={<Watchlist />} />
       </Routes>
     </div>
   );

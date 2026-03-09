@@ -74,7 +74,7 @@
 
 /*----------------*/
 
-
+/*Search Results */
 .search-form {
     margin-bottom: 32px;
     padding-bottom: 24px;
@@ -107,3 +107,50 @@
     flex: 1;
     color: #111827;
 }
+
+/*----------------*/
+
+
+/* Watchlist */
+.watchlist {
+    max-width: 500px;
+    margin: 24px auto;
+    padding: 0 16px;
+}
+
+.watchlist-card {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    padding: 12px;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+.watchlist-info {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.watchlist-info button {
+    width: fit-content;
+    padding: 4px 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.watchlist-info button:hover {
+    background-color: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+
+.watchlist-buttons {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+}
+
