@@ -21,15 +21,13 @@ function Home() {
          signInFlow: 'popup',
          callbacks: {
             signInSuccessWithAuthResult: (authResult, rediredtUrl) => {
-                console.log("Login Successful!")
-                //Manually navigate to your desired rooute
+                // console.log("Login Successful!")
                 navigate('/movie-search');
                 
-                // Return false so Fribase doesn't try its own return
                 return false;
             },
          },
-        // Other config options...
+
         });
 
     },[])

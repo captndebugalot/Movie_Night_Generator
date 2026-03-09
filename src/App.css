@@ -62,8 +62,14 @@
   padding: 0;
 }
 
-.navbar-logout:hover {
-  color: #2563eb;
+.link-disabled {
+    color: #9ca3af;
+    cursor: not-allowed;
+    text-decoration: none;
+}
+
+.link-disabled:hover {
+    color: #9ca3af;
 }
 
 /*----------------*/

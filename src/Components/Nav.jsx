@@ -17,6 +17,15 @@ function Nav() {
         return () => usRegisterAuthObserver()
     }, [])
 
+    const handleLinks = (e, path) => {
+        e.preventDefault()
+        if (!user?.uid) {
+            alert("Pleaes log in to use Cine-Byte features")
+        } else {
+            navigate (path)
+        }
+    }
+
     return (
         <nav>
             <div className="navbar">
@@ -28,10 +37,22 @@ function Nav() {
                         <Link to="/">Home</Link>
                     </li>
                     <li>
-                        <Link to="/movie-search">Movie Search</Link>
+                        <a 
+                            href="/movie-search"
+                            onClick={(e) => handleLinks(e, '/movie-search')}
+                            className={!user?.uid ? 'link-disabled' : ''}
+                        >
+                            Movie Search
+                        </a>
                     </li>
                     <li>
-                        <Link to="/watchlist">Watchlist</Link>
+                        <a 
+                            href="/watchlist"
+                            onClick={(e) => handleLinks(e, '/watchlist')}
+                            className={!user?.uid ? 'link-disabled' : ''}
+                        >
+                            Watchlist
+                        </a>
                     </li>
                     <li className="navbar-user">
                         {user?.uid && user.displayName}
