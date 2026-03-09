@@ -1,5 +1,6 @@
 import {useState} from 'react'
-import MovieService from './MovieService'
+import MovieService from '../MovieService'
+import MovieCard from './MovieCard'
 
 function MovieSearch() {
     const [title, setTitle] = useState('')
@@ -64,7 +65,7 @@ function MovieSearch() {
                         onChange={(e) => setTitle(e.target.value)} 
                     />
                 </div>
-                <div className='fiels'>
+                <div className='field'>
                     <label htmlFor='year'>Year (optional): </label>
                     <input 
                         id='year'
@@ -78,19 +79,15 @@ function MovieSearch() {
                     {isSearching ? 'Searching...' : 'Search'}
                 </button>
                 {error && <p className='error'>{error}</p>}
+                
+                <button type="button" onClick={() => setResults([])}>
+                    Clear Results
+                </button>
             </form>
 
             <div className='results'>
                 {results.map((movie) => (
-                    <div key={movie.imdbID} className="card">
-                        <img
-                            src={movie.Poster !== 'N/A' ? movie.Poster : '/no poster.png'}
-                            alt={movie.Title}
-                            style={{width: '80ox'}}
-                        />
-                        <div>{movie.Title} ({movie.Year})</div>
-                        <button>Add to Watchilist</button>
-                    </div>
+                    <MovieCard key={movie.imdbID} movie={movie} />
                 ))}
             </div>
             
