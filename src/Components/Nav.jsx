@@ -29,7 +29,7 @@ function Nav() {
     return (
         <nav>
             <div className="navbar">
-                <Link to="/" ClassName="navbar-logo">
+                <Link to="/" className="navbar-logo">
                     Cine-Byte
                 </Link>
                 <ul className="navbar-links">
