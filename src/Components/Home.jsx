@@ -9,7 +9,7 @@ function Home() {
     const navigate = useNavigate()
     useEffect (() => {
         const ui  = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth());
-        console.log(ui)
+
         ui.start('#firebaseui-auth-container', {
         signInOptions: [
             firebase.auth.GoogleAuthProvider.PROVIDER_ID,

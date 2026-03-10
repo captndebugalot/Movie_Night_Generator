@@ -1,6 +1,7 @@
 import {useState} from 'react'
 import MovieService from '../MovieService'
 import MovieCard from './MovieCard'
+import { validateSearchInput } from '../utils'
 
 function MovieSearch() {
     const [title, setTitle] = useState('')
@@ -15,13 +16,9 @@ function MovieSearch() {
         setError('')
         setResults([])
 
-        if (!title.trim()) {
-            setError('Title is required')
-            return
-        }
-        
-        if (year && year.trim() !=='' && !/^\d{4}$/.test(year.trim())) {
-            setError('Year must be 4 digits or leave blank')
+    const validation = validateSearchInput(title, year)
+        if (!validation.ok) {
+            setError(validation.message)
             return
         }
 

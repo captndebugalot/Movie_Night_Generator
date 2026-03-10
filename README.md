@@ -45,3 +45,25 @@ https://movie-night-generator.web.app
 ### What I Would Improve
   Making of the custom watchlist based on genre. Count of watched/unwatched movies in the watchlist or overall if multiple watchlists. 
 
+### How To Run Locally
+  1. Clone/Fork repo
+  2. In root of the project run: `npm install`
+  3. Create a .env file in the root with your Firebase and OMDB API keys:
+      ```
+      VITE_FIREBASE_API_KEY=your_key
+      VITE_FIREBASE_AUTH_DOMAIN=your_domain
+      VITE_FIREBASE_PROJECT_ID=your_project_id
+      VITE_OMDB_API_KEY=your_key
+      ```
+  4. Run `npm run dev`
+
+### How to Run Tests
+
+1. Install dependencies: `npm install`
+2. Run tests: `npm run test`
+
+The test suite covers the `validateSearchInput` utility function which validates movie search input fields. Tests include:
+- Returns error when title is empty
+- Returns ok when title is provided
+- Returns error when year is not 4 digits
+- Returns ok when year is valid 4 digits

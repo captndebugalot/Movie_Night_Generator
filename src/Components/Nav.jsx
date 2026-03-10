@@ -8,10 +8,6 @@ function Nav() {
 
     useEffect(() => {
         const usRegisterAuthObserver = firebase.auth().onAuthStateChanged(user => {
-            if (user?.uid !== undefined) {
-                // console.log(user.displayName)
-            }
-
             setUser(user)
         })
         return () => usRegisterAuthObserver()
@@ -20,7 +16,7 @@ function Nav() {
     const handleLinks = (e, path) => {
         e.preventDefault()
         if (!user?.uid) {
-            alert("Pleaes log in to use Cine-Byte features")
+            alert("Please log in to use Cine-Byte features")
         } else {
             navigate (path)
         }
