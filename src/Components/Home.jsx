@@ -1,5 +1,3 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
 import * as firebaseui from 'firebaseui' 
 import firebase from 'firebase/compat/app'
 import { useEffect } from 'react';
@@ -8,20 +6,17 @@ import { useNavigate } from 'react-router-dom';
 
 
 function Home() {
-
     const navigate = useNavigate()
     useEffect (() => {
         const ui  = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(firebase.auth());
         console.log(ui)
         ui.start('#firebaseui-auth-container', {
         signInOptions: [
-            // List of OAuth providers supported.
             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
         ],
          signInFlow: 'popup',
          callbacks: {
-            signInSuccessWithAuthResult: (authResult, rediredtUrl) => {
-                // console.log("Login Successful!")
+            signInSuccessWithAuthResult: () => {
                 navigate('/movie-search');
                 
                 return false;
@@ -30,13 +25,21 @@ function Home() {
 
         });
 
-    },[])
-    
+    },[navigate])
+
     return (
         <div>
             <h1>
-                Home
+                Welcom to Cine-Byte
             </h1>
+            <p>
+                Search movies, build your watchlist, and let us pick tonight&apos;s movie!
+            </p>
+            <img 
+                src='/movie-reel.png' 
+                alt='old movie camera'
+                style={{ width: '400px', height: '210px', objectFit: 'cover' }}
+            />
             <div id='firebaseui-auth-container'></div>
         </div>
     );

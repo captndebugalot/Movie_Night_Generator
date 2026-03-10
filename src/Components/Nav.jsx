@@ -26,6 +26,22 @@ function Nav() {
         }
     }
 
+    const handleAuth = () => {
+        if(user?.uid) {
+            firebase.auth().signOut()
+            navigate('/')
+        } else {
+            const provider = new firebase.auth.GoogleAuthProvider()
+            firebase.auth().signInWithPopup(provider)
+                .then(() => {
+                    navigate('/movie-search')
+                })
+                .catch((error) => {
+                    console.error('Login error:', error)
+                })
+        }
+    }
+
     return (
         <nav>
             <div className="navbar">
@@ -58,10 +74,9 @@ function Nav() {
                         {user?.uid && user.displayName}
                     </li>
                     <li>
-                        <button onClick={() => {
-                            firebase.auth().signOut()
-                            navigate('/')
-                        }}>{!user?.uid ? 'Log In' : 'Logout'}</button>
+                        <button onClick={handleAuth}>
+                            {user?.uid ? 'Logout' : 'Log In'}
+                        </button>
                     </li>
                 </ul>
             </div>

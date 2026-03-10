@@ -2,8 +2,9 @@ import {useState, useEffect} from 'react'
 import {collection, addDoc} from "firebase/firestore"; 
 import {db} from '../db'
 import firebase from 'firebase/compat/app';
+import PropTypes from 'prop-types'
 
-export function MovieCard({movie}) {
+function MovieCard({movie}) {
 
   const [isAdding, setIsAdding] = useState(false)
   const [user, setUser] = useState({})
@@ -48,7 +49,11 @@ export function MovieCard({movie}) {
         <img 
             src={movie.Poster !=='N/A' ? movie.Poster : '/no-poster.png'}
             alt={movie.Title}
-            style={{ width: '60px', height: '90px', objectFit: 'cover' }}
+            style={{ width: '60px', height: '80px', objectFit: 'cover' }}
+            onError={(e) => {
+                e.target.onerror = null
+                e.target.src = '/no-poster.png'
+            }}
         />
         <div className='card-info'>
             <div>{movie.Title} ({movie.Year})</div>
@@ -62,6 +67,15 @@ export function MovieCard({movie}) {
     </div>
    
   )
+}
+
+MovieCard.propTypes = {
+    movie: PropTypes.shape({
+        imdbID: PropTypes.string,
+        Title: PropTypes.string,
+        Year: PropTypes.string,
+        Poster: PropTypes.string,
+    })
 }
 
 export default MovieCard

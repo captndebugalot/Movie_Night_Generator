@@ -12,7 +12,6 @@ function MovieSearch() {
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        // clear previous results and errors
         setError('')
         setResults([])
 

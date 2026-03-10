@@ -2,7 +2,7 @@ import { collection, onSnapshot, orderBy, query, updateDoc, deleteDoc, doc } fro
 import { useEffect, useState } from "react";
 import {db} from '../db'
 import firebase from 'firebase/compat/app';
-import MovieCard from "./MovieCard";
+
 
 function Watchlist() {
     const [movies, setMovies] = useState([]);
@@ -102,7 +102,7 @@ return (
             <p></p>
             <button onClick={handlePick}>Pick a Random Movie</button>
             {countdown && <p>Picking in {countdown}...</p>}
-            {pick && <p>Tonight's Pick: {pick.Title} ({pick.Year})</p>}
+            {pick && <p>Tonight&apos;s Pick: {pick.Title} ({pick.Year})</p>}
         </div>
     </div>
 
