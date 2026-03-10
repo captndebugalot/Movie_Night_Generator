@@ -154,3 +154,24 @@
     gap: 8px;
 }
 
+.watched-btn {
+    padding: 4px 10px;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    transition: all 0.2s;
+}
+
+.watched-btn.active {
+    background-color: #16a34a;
+    color: white;
+    border-color: #16a34a;
+}
+
+.watched-btn:hover {
+    background-color: #2563eb;
+    color: white;
+    border-color: #2563eb;
+}
+

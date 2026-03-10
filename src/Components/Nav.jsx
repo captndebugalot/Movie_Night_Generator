@@ -61,7 +61,7 @@ function Nav() {
                         <button onClick={() => {
                             firebase.auth().signOut()
                             navigate('/')
-                        }}>Logout</button>
+                        }}>{!user?.uid ? 'Log In' : 'Logout'}</button>
                     </li>
                 </ul>
             </div>
