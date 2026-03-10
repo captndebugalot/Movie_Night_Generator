@@ -17,7 +17,6 @@ class MovieService {
 
     static search(title, year) {
         const url = MovieService.buildSearchUrl(title, year);
-        console.log('Searching OMDB with URL:', url);
         return fetch(url).then(function(res) {
             if (!res.ok) throw new Error('Network error');
             return res.json();

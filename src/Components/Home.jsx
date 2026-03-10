@@ -30,7 +30,7 @@ function Home() {
     return (
         <div>
             <h1>
-                Welcom to Cine-Byte
+                Welcome to Cine-Byte
             </h1>
             <p>
                 Search movies, build your watchlist, and let us pick tonight&apos;s movie!
