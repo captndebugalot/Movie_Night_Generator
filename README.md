@@ -19,7 +19,7 @@ Project requirements:
   - All components that take in props must use prop-types, no generic proptypes, they must be specific. For example, if it takes an array of data, it must be detailed to what that array of data looks like, not just a general array
 - README updated
   - README updated to include:
-  - the public facing url
+  - URL: https://movie-night-generator.web.app
   - a brief summary of your project
   - The answers to the following questions Fill out each of these with a few sentences (50 characters minimum):
   - What worked well in this project (what was easy/straightforward)?
